@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Mannan-Bablu/docker-.git'
+            }
+        stage('Create-Image') {
+                // Build the images from dockerfile
+			steps {
+				sh 'docker build -t="8184848757/pipeline:latest" .'
+			}
+	stage('Docker-login') {
+		        steps {
+		                sh 'docker login -u Mannan-Bablu -p Maroct-143'
+			}
+	stage('Dockerpush') {
+			steps {
+				sh 'docker push 8184848757/pipeline '
+			}
+	stage('create container') {
+			steps {
+				sh 'docker run -d -p 95:80 -v /home/ubuntu:/var/www/html Mannan-Bablu/pipeline'
+			}
+		}
+	}
+}    
+
+ 
