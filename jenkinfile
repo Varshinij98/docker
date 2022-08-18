@@ -16,7 +16,7 @@ pipeline {
 	    }
 		stage('Docker-login') {
 		         steps {
-		                sh 'docker login -u jaanvi -p Maroct-341'
+		                sh 'docker login -u jaanvi -p minhoshi@22'
 			}
 	    }
 		stage('Dockerpush') {
