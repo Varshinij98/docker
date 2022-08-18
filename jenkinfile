@@ -5,7 +5,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Mannan-Bablu/docker-.git'
+                git 'https://github.com/Varshinij98/docker.git'
             }
         }
 		stage('Create-Image') {
