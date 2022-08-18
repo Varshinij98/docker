@@ -11,22 +11,22 @@ pipeline {
 		stage('Create-Image') {
                 // Build the images from dockerfile
 			steps {
-				sh 'docker build -t="8184848757/pipeline:latest" .'
+				sh 'docker build -t="jaanvi/pipeline:latest" .'
 			}
 	    }
 		stage('Docker-login') {
 		         steps {
-		                sh 'docker login -u 8184848757 -p Maroct-341'
+		                sh 'docker login -u jaanvi -p Maroct-341'
 			}
 	    }
 		stage('Dockerpush') {
 			steps {
-				sh 'docker push 8184848757/pipeline '
+				sh 'docker push jaanvi/pipeline '
 			}
 	    }
 		stage('create container') {
 			steps {
-				sh 'docker run -d -p 95:80 -v /home/ubuntu:/var/www/html 8184848757/pipeline'
+				sh 'docker run -d -p 95:80 -v /home/ubuntu:/var/www/html jaanvi/pipeline'
 			}
 		}
 	}
